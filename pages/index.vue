@@ -5,6 +5,7 @@
       <h1 class="title">
         web-note
       </h1>
+      <p>{{items[0].title}}</p>
       <h2 class="subtitle">
         My bee&#39;s knees Nuxt.js project
       </h2>
