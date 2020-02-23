@@ -1,6 +1,5 @@
 require("dotenv").config();
 const { API_KEY } = process.env;
-
 export default {
   mode: 'universal',
   /*
@@ -30,6 +29,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+      {src:'~/plugins/validation.js'},
   ],
   /*
   ** Nuxt.js dev-modules
@@ -42,6 +42,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/style-resources'
   ],
   /*
   ** Axios module configuration
@@ -62,4 +63,13 @@ export default {
   env: {
     API_KEY
   },
+  // router:{
+  //   middleware:'getData',
+  // },
+  styleResources: {
+    scss: [
+        '~/assets/scss/_variables.scss',
+        '~/assets/scss/_mixin.scss',
+    ],
+  }
 }

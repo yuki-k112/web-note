@@ -1,7 +1,7 @@
-<template>
-  <div>
-    <nuxt />
-  </div>
+<template lang='pug'>
+.wrapper
+    header
+    nuxt
 </template>
 
 <style>

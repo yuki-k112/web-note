@@ -1,41 +1,29 @@
-<template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        web-note
-      </h1>
-      <p>{{items[0].title}}</p>
-      <h2 class="subtitle">
-        My bee&#39;s knees Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
-  </div>
+<template lang='pug'>
+main.index
+    IndexCard(
+        :title='items[0].title' 
+        :date='items[0].data' 
+        :alt='items[0].alt' 
+        :img='items[0].mainImg'
+        :category='items[0].category.title'
+        :linkUrl='testUrl'
+    )
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
 import axios from "axios";
+import CategoryLabel from "~/components/element/CategoryLabel";
+import IndexCard from "~/components/module/IndexCard";
 
 export default {
   components: {
-    Logo
+    CategoryLabel,
+    IndexCard
+  },
+  data:function(){
+      return {
+          testUrl:'/'
+      }
   },
   async asyncData({ app, error }) {
    const { data } = await axios.get(
