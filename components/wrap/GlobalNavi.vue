@@ -18,6 +18,21 @@ nav.globalNavi
 <script>
 export default {
     name:'GlobalNavi',
+      data:function(){
+        return {
+            testUrl:'/'
+        }
+    },
+    async asyncData({ app, error }) {
+    const { data } = await axios.get(
+        "https://web-note.microcms.io/api/v1/categories", {
+            headers: { "X-API-KEY": process.env.API_KEY }
+        }
+        );
+        return {
+            categories: data.contents
+        };
+    },
 }
 </script>
 

@@ -20,6 +20,7 @@ main.index
                 :img='item.mainImg'
                 :category='item.category.title'
                 :linkUrl='testUrl'
+                :tags='item.tag'
             )
 </template>
 

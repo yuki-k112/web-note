@@ -1,13 +1,19 @@
 <template lang='pug'>
 .indexCard(:class='indexClass')
-    nuxt-link.indexCard_inner(to='/')
-        h2.indexCard_title {{title}}
+    .indexCard_inner(to='/')
+        .indexCard_infoArea
+            h2.indexCard_title {{title}}
+            time.indexCard_date {{date}}
+            ul.indexCard_tagList
+                li.indexCard_tag(
+                    v-for='item in tags'
+                ) 
+                    a.indexCard_tagLink {{item.tag}}
         figure.indexCard_img-wrap
-            img.indexCard_img(
-                :src='img.url' 
-                :alt='alt'
-            )
-        time.indexCard_date {{date}}
+                img.indexCard_img(
+                    :src='img.url' 
+                    :alt='alt'
+                )
         categoryLabel(
             :class='indexClass',
             :url='linkUrl',
@@ -46,6 +52,9 @@ export default {
         },
         category:{
             type:String,
+        },
+        tags:{
+            type:Array,
         }
     },
 }
@@ -57,20 +66,42 @@ export default {
     position: relative;
     border-radius: 0.75rem;
     transition: .5s;
+    &_infoArea{
+        order: 1;
+        padding-left: 0.25rem;
+        display: flex;
+        flex-direction: column;
+    }
     &_inner{
         display: flex;
         flex-direction: column;
         text-decoration: none;
     }
     &_title{
-        order: 3;
         font-size: $text-medium;
         font-weight: 700;
-        margin-bottom: 0.75rem;
-        padding-left: 0.25rem;
+        margin-bottom: 0.25rem;
+        order: 1;
+    }
+    &_tagList{
+        font-size: $text-smaller;
+        order: 2;
+        flex-wrap: wrap;
+    }
+    &_tag{
+        color: $color-text-sub;
+        display: inline-block;
+        &+&::before{
+            content: '/';
+            display: inline-block;
+            margin: 0 0.5rem;
+        }
+    }
+    &_tagLink{
+        color: $color-text-sub;
     }
     &_img{
-        order: 1;
+        order: 0;
         border-radius: 0.75rem;
         width: 100%;
         height: 100%;
@@ -86,8 +117,7 @@ export default {
     &_date{
         font-size: $text-smaller;
         color: $color-text-sub;
-        order: 2;
-        padding-left: 0.25rem;
+        order: 0;
     }
     .categoryLabel{
         position: absolute;
