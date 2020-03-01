@@ -72,5 +72,8 @@ export default {
         '~/assets/scss/_variables.scss',
         '~/assets/scss/_mixin.scss',
     ],
-  }
+  },
+  router:{
+    middleware:'fetchData',
+  },
 }
