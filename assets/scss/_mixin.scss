@@ -1,2 +1,13 @@
-$text-small:14px;
-$text-medium:20px;
+//-spメディアクエリ
+@mixin sp {
+    @media only screen and (max-width: ($sp)) {
+      @content;
+    }
+  }
+  
+  //-pcメディアクエリ
+  @mixin pc {
+    @media only screen and (min-width: ($pc)) {
+      @content;
+    }
+  }

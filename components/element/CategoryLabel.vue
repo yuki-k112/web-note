@@ -1,7 +1,6 @@
 <template lang='pug'>
-nuxt-link.categoryLabel(
-    :to='url' 
-    ) {{name}}
+nuxt-link(to='/')
+    p.categoryLabel {{name}}
 </template>
 <script>
 export default {
@@ -36,11 +35,16 @@ export default {
     font-weight: 700;
     border: solid thin #fff;
     text-decoration: none;
+    transition: .4s;
     &.javaScript{
         background-color: rgb(221, 142, 142);
     }
     &.develop{
         background-color: rgb(204, 185, 102);
+    }
+    &:hover{
+        transform: scale(1.1);
+        transition: .15s;
     }
 }
 </style>
