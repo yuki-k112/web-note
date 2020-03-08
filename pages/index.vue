@@ -32,7 +32,7 @@ import IndexCard from "~/components/module/IndexCard";
 export default {
   components: {
     CategoryLabel,
-    IndexCard
+    IndexCard,
   },
   data:function(){
       return {

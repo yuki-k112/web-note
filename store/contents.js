@@ -8,7 +8,7 @@ export const mutations = {
         const trimDate = (prop) => {
             let target = prop.indexOf('T');
             return prop.slice(0, target);            
-        }           
+        }
         await res.forEach(cont => {
             cont.date = trimDate(cont.date);
             cont.updatedAt = trimDate(cont.updatedAt);
