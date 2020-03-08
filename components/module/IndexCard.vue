@@ -1,8 +1,11 @@
 <template lang='pug'>
 .indexCard(:class='indexClass')
-    .indexCard_inner(to='/')
+    .indexCard_inner
         .indexCard_infoArea
             h2.indexCard_title {{title}}
+                nuxt-link(
+                    to='/'
+                )
             time.indexCard_date {{date}}
             ul.indexCard_tagList
                 li.indexCard_tag(
