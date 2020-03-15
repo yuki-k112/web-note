@@ -1,8 +1,8 @@
 <template lang='pug'>
 main.index
     .index_header
-        h1.index_title New Arrival
-        p.index_lead 新着記事一覧
+        h1.index_title TEST
+        p.index_lead test
 
     transition-group.index_cardList(
         appear 
@@ -84,7 +84,6 @@ export default {
         max-width: 1200px;
         box-shadow: $shadow-04;
         padding:2rem 0.5rem;
-        border-radius: 10px;
     }
     &_card{
         width: calc(33% - 3rem);

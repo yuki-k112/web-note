@@ -2,40 +2,19 @@
 nav.globalNavi
     dl.globalNavi_categoryList
         dt.globalNavi_categoryTitle カテゴリー
-        dd.globalNavi_category
-            a.globalNavi_link Home
-        dd.globalNavi_category
-            a.globalNavi_link Develop
-        dd.globalNavi_category
-            a.globalNavi_link UI/UX
-        dd.globalNavi_category
-            a.globalNavi_link Interaction
-        dd.globalNavi_category
-            a.globalNavi_link Books
-
+        dd.globalNavi_category(v-for='item in getCategories')
+            nuxt-link.globalNavi_link(:to='item.path') {{item.title}}
 </template>
-
 <script>
 export default {
     name:'GlobalNavi',
-      data:function(){
-        return {
-            testUrl:'/'
-        }
-    },
-    async asyncData({ app, error }) {
-    const { data } = await axios.get(
-        "https://web-note.microcms.io/api/v1/categories", {
-            headers: { "X-API-KEY": process.env.API_KEY }
-        }
-        );
-        return {
-            categories: data.contents
-        };
+    computed:{
+        getCategories:function(){
+            return this.$store.state.getters.getCategories;
+        },
     },
 }
 </script>
-
 <style lang='scss'>
 .globalNavi{
     max-width: 300px;
