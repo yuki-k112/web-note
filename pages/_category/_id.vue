@@ -15,18 +15,15 @@ export default {
     components: {
         ArticleArea
     },
-    async asyncData ({ params, error, payload }) {        
-        if (payload) {return { cont: payload }}
-        else { 
-            try {
-                const article = await axios.get('https://web-note.microcms.io/api/v1/article', {
-                    headers: { "X-API-KEY": process.env.API_KEY }
-                })
-                return {cont:article.data.contents}               
-            } catch (error) { 
-                console.log(error);
-            }
-        }        
+    created() {        
+        if (this.cont) { return } 
+        const articles = this.$store.state.contents.article;
+        const article = articles.filter(item => item.id === this.$route.params.id)
+        this.cont = article
+    },
+    async asyncData (payload) {        
+        if (!payload) { return }
+        return { cont: payload }
     }
 }
 
