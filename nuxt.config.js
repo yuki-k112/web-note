@@ -80,19 +80,15 @@ export default {
     middleware:'fetchData',
   },
   generate:{
-    routes(){
-        return axios.get('https://web-note.microcms.io/api/v1/article', {
+    async routes(){
+        const res = await axios.get('https://web-note.microcms.io/api/v1/article', {
             headers: { "X-API-KEY": process.env.API_KEY }
         })
-        .then((res)=>{
-            return res.data.contents.map((cont) => {   
-                let category = cont.category.title.toLowerCase().replace( /\// , "-" )
-                return {
-                    route:'/' + category + '/' + cont.id,
-                    payload:cont
-                }
-            })
+        res.data.contents.map(item => {
+            return {
+                route:`/${item.category.path}/${item.id}`,
+                payload:item
+            }
         })
     }
-  },
-}
+},}

@@ -31,13 +31,11 @@ export const actions = {
 export const getters = {
     getCategories(state){
         return state.article
-            .map(categories => 
-                categories.category
-            ).sort((a,b) => 
-                a.type - b.type
-            ).map(categories =>
-                categories.title 
-            ).filter((x, i, self) => 
+            .sort((a,b) =>
+                a.category.type - b.category.type
+            ).map(items =>
+                items.category
+            ).filter((x, i, self) =>
                 self.indexOf(x) === i
             )
     },
