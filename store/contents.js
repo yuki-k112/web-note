@@ -12,7 +12,7 @@ export const mutations = {
         await res.forEach(cont => {
             cont.date = trimDate(cont.date);
             cont.updatedAt = trimDate(cont.updatedAt);
-        })        
+        })   
         state.article = res;
     },
 }
@@ -30,34 +30,41 @@ export const actions = {
 
 export const getters = {
     getCategories(state){
-        return state.article
-            .sort((a,b) =>
-                a.category.type - b.category.type
-            ).map(items =>
-                items.category
-            ).filter((x, i, self) =>
-                self.indexOf(x) === i
-            )
-    },
-    getTags(state){
-        const formatTags = (state) => {
-            let tags = [];
-            let tagBaseData = state.article.map(items => items.tag);
-            tagBaseData.map(items => 
-               items.forEach(item => tags.push(item))
-            )
-            return tags
+        const array = Array.from(state.article);
+        const isFirstElement = (el, i, arry) => {
+            return arry.findIndex((el2) => {
+                return el.title === el2.title
+            }) === i
         }
-
-        return formatTags(state)
-            .sort((a, b) =>
+        const formatArray = array
+            .map(items =>
+                items.category
+            ).sort((a,b) =>
                 a.type - b.type
-            ).map(tag =>
-                tag.tag
-            ).filter((x, i, self) => 
-                self.indexOf(x) === i
-            )
-    }
+            ).filter((el, i, arry) => {
+                return isFirstElement(el, i, arry)
+            })
+        return formatArray
+    },
+    // getTags(state){
+    //     const formatTags = (state) => {
+    //         let tags = [];
+    //         let tagBaseData = state.article.map(items => items.tag);
+    //         tagBaseData.map(items => 
+    //            items.forEach(item => tags.push(item))
+    //         )
+    //         return tags
+    //     }
+
+    //     return formatTags(state)
+    //         .sort((a, b) =>
+    //             a.type - b.type
+    //         ).map(tag =>
+    //             tag.tag
+    //         ).filter((x, i, self) => 
+    //             self.indexOf(x) === i
+    //         )
+    // }
 }
 
 
