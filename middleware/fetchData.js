@@ -1,6 +1,6 @@
-export default ({ store }) => {
+export default async ({ store }) => {
     if (store.state.article){return} 
-    store.dispatch('contents/fetchArticle')
+    await store.dispatch('contents/fetchArticle')
 }
 
 

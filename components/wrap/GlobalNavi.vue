@@ -2,17 +2,20 @@
 nav.globalNavi
     dl.globalNavi_categoryList
         dt.globalNavi_categoryTitle カテゴリー
-        dd.globalNavi_category(v-for='item in getCategories')
+        dd.globalNavi_category(v-for='item in categories')
             nuxt-link.globalNavi_link(:to='item.path') {{item.title}}
 </template>
 <script>
 export default {
     name:'GlobalNavi',
-    computed:{
-        getCategories:function(){
-            return this.$store.state.getters.getCategories;
-        },
+    data:function(){
+        return {
+            categories:[]
+        }
     },
+    mounted(){
+        this.categories = this.$store.getters['contents/getCategories']
+    }
 }
 </script>
 <style lang='scss'>
