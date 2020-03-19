@@ -10,7 +10,7 @@ main.index
         tag='ul'
     )
         li.index_card(
-            v-for='item in items' 
+            v-for='item in articleData' 
             :key="item.id"
         )
             IndexCard(
@@ -19,7 +19,8 @@ main.index
                 :alt='item.alt' 
                 :img='item.mainImg'
                 :category='item.category.title'
-                :linkUrl='testUrl'
+                :categoryPath='item.category.path'
+                :id='item.id'
                 :tags='item.tag'
             )
 </template>
@@ -34,22 +35,11 @@ export default {
     CategoryLabel,
     IndexCard,
   },
-  data:function(){
-      return {
-          testUrl:'/'
-      }
-  },
-  async asyncData({ app, error }) {
-   const { data } = await axios.get(
-      "https://web-note.microcms.io/api/v1/article",
-      {
-        headers: { "X-API-KEY": process.env.API_KEY }
-      }
-    );
-    return {
-      items: data.contents
-    };
-  },
+  computed:{
+      articleData:function(){
+          return this.$store.state.contents.article
+      },
+  }
 }
 
 </script>
@@ -59,13 +49,13 @@ export default {
     padding-left: 2rem;
     &_header{
         display: block;
-        color: #fff;
+        color: $color-main;
         margin-bottom: 2rem;
         position: relative;
         padding-left: 2rem;
         &::before{
             content: '';
-            border-top: solid 0.75rem #fff;
+            border-top: solid 0.75rem $color-main;
             border-left: solid 0.5rem transparent;
             border-right: solid 0.5rem transparent;
             display: block;

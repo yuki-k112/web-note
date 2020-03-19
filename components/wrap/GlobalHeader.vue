@@ -16,7 +16,7 @@ export default {
 .globalHeader{
     &_titleArea{
         padding:3rem 0 4rem;
-        color: #fff;
+        color: $color-main;
         display: flex;
         align-items: center;
         flex-wrap: wrap;

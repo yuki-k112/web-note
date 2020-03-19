@@ -23,9 +23,10 @@ export default {
 <style lang='scss'>
 .wrapper{
     min-height: 100vh;
-    background-image: linear-gradient(60deg, #96deda 0%, #50c9c3 100%);
+    background-color: $color-bg-sub;
     .globalNavi{
         width: 210px;
+        background-image: linear-gradient(60deg, #96deda 0%, #50c9c3 100%);
     }
     .inner{
         margin-left: 210px;

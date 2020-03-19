@@ -25,11 +25,10 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #fff;
     padding: 6rem 1rem 2rem 2rem;
     &_categoryTitle{
         font-size: $text-large;
-        color: $color-sub;
+        color: #fff;
     }
     &_category{
         margin-top: 2rem;
@@ -43,7 +42,7 @@ export default {
         }
         &::before{
             content: '';
-            border-left: solid 0.5rem $color-sub;
+            border-left: solid 0.5rem #fff;
             border-top: solid 0.5rem transparent;
             border-bottom: solid 0.5rem transparent;
             position: absolute;
@@ -52,7 +51,7 @@ export default {
         }
     }
     &_link{
-        color: $color-sub;
+        color:#fff;
     }
 }
 </style>
