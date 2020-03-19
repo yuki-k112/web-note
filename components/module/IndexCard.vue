@@ -1,11 +1,11 @@
 <template lang='pug'>
-.indexCard(:class='indexClass')
+section.indexCard(:class='indexClass')
     .indexCard_inner
         .indexCard_infoArea
-            h2.indexCard_title {{title}}
+            h2.indexCard_title 
                 nuxt-link(
-                    to='/'
-                )
+                    :to='setLink'
+                ) {{title}}
             time.indexCard_date {{date}}
             ul.indexCard_tagList
                 li.indexCard_tag(
@@ -19,7 +19,7 @@
                 )
         categoryLabel(
             :class='indexClass',
-            :url='linkUrl',
+            :url='setCategoryLink',
             :name='category'
         ) {{category}}
 </template>
@@ -39,7 +39,7 @@ export default {
             type:String,
             required:true,
         },
-        linkUrl:{
+        id:{
             type:String,
             required:true,
         },
@@ -56,10 +56,22 @@ export default {
         category:{
             type:String,
         },
+        categoryPath:{
+            type:String,
+        },
         tags:{
             type:Array,
         }
     },
+    computed:{
+        setLink:function(){
+          return `/${this.categoryPath}/${this.id}/`
+        },
+        setCategoryLink:function(){
+          return `/${this.categoryPath}/`
+        }
+
+    }
 }
 </script>
 <style lang='scss'>
