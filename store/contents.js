@@ -31,19 +31,10 @@ export const actions = {
 export const getters = {
     getCategories(state){
         const array = Array.from(state.article);
-        const isFirstElement = (el, i, arry) => {
-            return arry.findIndex((el2) => {
-                return el.title === el2.title
-            }) === i
-        }
         const formatArray = array
-            .map(items =>
-                items.category
-            ).sort((a,b) =>
-                a.type - b.type
-            ).filter((el, i, arry) => {
-                return isFirstElement(el, i, arry)
-            })
+            .map(items => items.category)
+            .sort((a,b) => a.type - b.type)
+            .filter((el, i, arry) => arry.findIndex(el2 => el.title === el2.title) === i)
         return formatArray
     },
     // getTags(state){
