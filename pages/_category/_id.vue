@@ -21,9 +21,9 @@ export default {
         const article = articles.filter(item => item.id === this.$route.params.id)
         this.cont = article
     },
-    async asyncData (payload) {        
-        if (!payload) { return }
-        return { cont: payload }
+    async asyncData (context) {        
+        if (!context.payload) { return }
+        return { cont: context.payload }
     }
 }
 
