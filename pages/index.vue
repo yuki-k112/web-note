@@ -70,11 +70,7 @@ export default {
     &_cardList{
         display: flex;
         flex-wrap: wrap;
-        background-color: #fff;
         max-width: 1200px;
-        box-shadow: $shadow-04;
-        padding:3rem 0.5rem;
-        border-radius: 10px;
     }
     &_cardArea{
         margin:0 2rem 3rem;

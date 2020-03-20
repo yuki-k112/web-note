@@ -81,16 +81,20 @@ export default {
 </script>
 <style lang='scss'>
 .indexCard{
-    padding: 1rem;
     position: relative;
     border-radius: 0.75rem;
     transition: .5s;
+    box-shadow: $shadow-03;
+    border-radius: 10px;
+    overflow:hidden;
     &:hover{
         cursor:pointer;
+        transition: .25s;
+        box-shadow: $shadow-05;
     }
     &_infoArea{
         order: 1;
-        padding-left: 0.25rem;
+        padding: 0 1.5rem 2rem;
         display: flex;
         flex-direction: column;
     }
@@ -124,14 +128,12 @@ export default {
     }
     &_img{
         order: 0;
-        border-radius: 0.75rem;
         width: 100%;
         height: 100%;
         transition: .4s;
         vertical-align: bottom;
         &-wrap{
             overflow: hidden;
-            border-radius: 0.75rem;
             width: 100%;
             margin-bottom: 1rem;
         }
@@ -141,18 +143,14 @@ export default {
         color: $color-text-sub;
         order: 0;
     }
-    &:hover {
-        transition: .25s;
-        box-shadow: $shadow-02;
-    }
     &:hover .indexCard_img{
         transform: scale(1.2);
         transition: .25s;
     }
     .categoryLabel{
         position: absolute;
-        top:0.5rem;
-        left: 0.5rem;
+        top:0.75rem;
+        left: 0.75rem;
         z-index:99999;
     }
 }

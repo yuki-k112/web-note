@@ -92,7 +92,7 @@ export default {
         background-repeat: no-repeat;
     }
     &_title{
-        font-size: $text-large;
+        font-size: $text-larger;
         font-weight: 700;
         margin-top: 1.5rem;
     }

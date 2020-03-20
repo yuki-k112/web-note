@@ -27,7 +27,7 @@ export default {
     background-color: $color-bg-sub;
     &_side{
         width: 180px;
-        background-image: linear-gradient(60deg, #96deda 0%, #50c9c3 100%);
+        background-image: linear-gradient(60deg, #96deda 0%, #09d2a3 100%);
         height: 100vh;
         position: fixed;
         top: 0;
