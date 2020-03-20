@@ -1,9 +1,10 @@
 <template lang='pug'>
 .wrapper
-    .inner
+    .wrapper_side
         GlobalHeader
+        GlobalNavi
+    .wrapper_main
         nuxt
-    GlobalNavi
 
 </template>
 
@@ -24,11 +25,24 @@ export default {
 .wrapper{
     min-height: 100vh;
     background-color: $color-bg-sub;
-    .globalNavi{
-        width: 210px;
+    &_side{
+        width: 180px;
         background-image: linear-gradient(60deg, #96deda 0%, #50c9c3 100%);
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 2rem 1rem 2rem 2rem;
+        .globalHeader{
+            position: absolute;
+            top: 2rem;
+            width: 190px;
+        }
+        .globalNavi{
+            margin-top: 15rem;
+        }
     }
-    .inner{
+    &_main{
         margin-left: 210px;
         padding: 3rem;
     }

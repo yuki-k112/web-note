@@ -14,8 +14,10 @@ export default {
 
 <style lang='scss'>
 .globalHeader{
+    background-color: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
     &_titleArea{
-        padding:3rem 0 4rem;
         color: $color-main;
         display: flex;
         align-items: center;
@@ -23,15 +25,12 @@ export default {
         font-weight: 700;
     }
     &_logo{
-        font-size: 3rem;
+        font-size: 2.75rem;
         position: relative;
-        margin-right: 1.5rem;
-        padding-right: 1.5rem;
-        border-right: solid thin ;
-        line-height: 1;
+        line-height: 1.2;
     }
     &_lead{
-        font-size: $text-medium;
+        margin-top: 1rem;
     }
 }
 </style>

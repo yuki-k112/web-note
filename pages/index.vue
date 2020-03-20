@@ -9,7 +9,7 @@ main.index
         name='list-complete' 
         tag='ul'
     )
-        li.index_card(
+        li.index_cardArea(
             v-for='item in articleData' 
             :key="item.id"
         )
@@ -73,25 +73,24 @@ export default {
         background-color: #fff;
         max-width: 1200px;
         box-shadow: $shadow-04;
-        padding:2rem 0.5rem;
+        padding:3rem 0.5rem;
         border-radius: 10px;
     }
-    &_card{
-        width: calc(33% - 3rem);
+    &_cardArea{
+        margin:0 2rem 3rem;
+        width: calc(33% - 4rem);
         max-width: 320px;
         min-width: 195px;
-        margin:0 1.5rem 1.5rem;
-        @media only screen and (max-width:1060px) {
-           width: calc(50% - 3rem);
+        .indexCard{
+            width:100%;
+            // @media only screen and (max-width:1060px) {
+            //     width: calc(50% - 3rem);
+            // }
+            @media only screen and (max-width:810px) {
+                width: 100%;
+                max-width: 100%;
+            }
         }
-        @media only screen and (max-width:810px) {
-           width: 100%;
-           max-width: 100%;
-           .indexCard{
-               max-width: 100%;
-           }
-        }
-
     }
 }
 </style>

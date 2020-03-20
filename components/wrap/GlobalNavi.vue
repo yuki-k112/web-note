@@ -3,7 +3,7 @@ nav.globalNavi
     dl.globalNavi_categoryList
         dt.globalNavi_categoryTitle カテゴリー
         dd.globalNavi_category(v-for='item in categories')
-            nuxt-link.globalNavi_link(:to='item.path') {{item.title}}
+            nuxt-link.globalNavi_link(:to='"/"+item.path') {{item.title}}
 </template>
 <script>
 export default {
@@ -20,19 +20,12 @@ export default {
 </script>
 <style lang='scss'>
 .globalNavi{
-    max-width: 300px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 6rem 1rem 2rem 2rem;
     &_categoryTitle{
         font-size: $text-large;
         color: #fff;
     }
     &_category{
-        margin-top: 2rem;
-        font-size: $text-medium;
+        margin-top: 1.5rem;
         font-weight: 700;
         position: relative;
         display: flex;
@@ -42,11 +35,12 @@ export default {
         }
         &::before{
             content: '';
-            border-left: solid 0.5rem #fff;
-            border-top: solid 0.5rem transparent;
-            border-bottom: solid 0.5rem transparent;
+            border-left: solid 0.4rem #fff;
+            border-top: solid 0.4rem transparent;
+            border-bottom: solid 0.4rem transparent;
             position: absolute;
-            top: 0.25rem;
+            top: 50%;
+            transform: translateY(-50%);
             left: 0;
         }
     }
