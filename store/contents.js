@@ -4,12 +4,12 @@ export const state = () => ({
 
   
 export const mutations = {
-    async setArticle(state,　res){  
+    setArticle(state,　res){  
         const trimDate = (prop) => {
             let target = prop.indexOf('T');
             return prop.slice(0, target);            
         }
-        await res.forEach(cont => {
+        res.forEach(cont => {
             cont.date = trimDate(cont.date);
             cont.updatedAt = trimDate(cont.updatedAt);
         })   
