@@ -1,5 +1,5 @@
 <template lang='pug'>
-nuxt-link(to='/')
+nuxt-link(:to='url')
     p.categoryLabel {{name}}
 </template>
 <script>

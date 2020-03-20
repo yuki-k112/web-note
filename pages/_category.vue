@@ -6,7 +6,7 @@
 <script>
 export default {
     validate ({ params, store }) {
-        const categories = store.getters['contents/getCategories'].map(item => item.path)
+        const categories = Array.from(store.getters['contents/getCategories']).map(item => item.path)
         return categories.some(category => category === params.category);
     }
 }       

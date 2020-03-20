@@ -1,29 +1,36 @@
 <template lang="pug">
 article.articleArea
-    header.articleArea_header(
-        :style='getBgImg'
-    )
+    header.articleArea_header
+        span.articleArea_img(
+            :style='getBgImg'
+        )
         h1.articleArea_title {{title}}
         .articleArea_dateArea
-            time.articleArea_date 投稿日時:{{time}}
+            time.articleArea_date 投稿日:{{date}}
             time.articleArea_update(
-                v-if='upDateTime'
-            ) 更新日時:{{updataTime}}
-        categoryLabel(
-            :name = 'category'
-        )
+                v-if='updataDate'
+            ) 更新日:{{updataDate}}
         dl.articleArea_tags
             dt.articleArea_tagTitle Tag:
             dd.articleArea_tag(
                 v-for='item in tags'
-            ) {{item.name}}
+            ) {{item.tag}}
+        categoryLabel(
+            :name='category' 
+            :url='setCategoryLink',
+        )
 
     section.articleArea_body(v-html='body')
 </template>
 
 <script>
+import CategoryLabel from '~/components/element/CategoryLabel'
+
 export default {
     name:'ArticleArea',
+    components:{
+        CategoryLabel,
+    },
     props:{
         title:{
             type:String,
@@ -31,26 +38,32 @@ export default {
         body:{
             type:String,
         },
-        time:{
+        date:{
             type:String
         },
-        upDataTime:{
+        updataDate:{
             type:String
         },
         category:{
             type:String,
         },
+        categoryPath:{
+            type:String,
+        },
         tags:{
             type:Array,
         },
-        headerImg:{
-            type:Object,
+        img:{
+            type:String,
         },
     },
     computed:{
         getBgImg:function(){
-            return 'background-img:url("' + this.headerImg.src + '")'
+            return 'background-image:url("' + this.img + '")'
         },
+        setCategoryLink:function(){
+          return `/${this.categoryPath}/`
+        }
     },
 }
 </script>
@@ -59,35 +72,51 @@ export default {
     border-radius: 10px;
     background-color: #fff;
     box-shadow: $shadow-04;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 2.5rem 2.5rem;
+    position:relative;
     &_header{
-        padding-top: 6rem;
-        background-size: 100% 6rem;
-        background-position: top left;
-        display: flex;
-        flex-direction: column;
+        display:flex;
+        flex-direction:column;
+    }
+    &_img{
+        width: 100vw;
+        height: calc(10rem + 11vw);
+        position: relative;
+        left: 50%;
+        transform:translateX(-50%);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
     &_title{
         font-size: $text-large;
         font-weight: 700;
-        order: 1;
-        margin-top: 1rem;
+        margin-top: 1.5rem;
     }
     &_dateArea{
-        order: 0;
         display: flex;
         font-size: $text-smaller;
         color: $color-text-sub;
+        margin-top:1rem;
     }
-    &_upDateTime{
-        margin-left: 1rem;
+    &_update{
+        margin-left: 0.75rem;
+        &::before{
+            content:'/';
+            margin-right:0.75rem;
+        }
     }
     &_tags{
         display: flex;
         font-size: $text-small;
         color: $color-text-sub;
+        margin-top:0.5rem;
     }
     &_tagTitle{
-        font-weight: 700;
+        font-weight: 400;
     }
     &_tag{
         margin-left: 0.5rem;
@@ -102,7 +131,13 @@ export default {
         }
     }
     &_body{
-        margin-top: 3rem;
+        margin-top: 4rem;
+    }
+    .categoryLabel{
+        position:absolute;
+        top:1.25rem;
+        left:1.25rem;
+        font-size:$text-medium;
     }
 }
 

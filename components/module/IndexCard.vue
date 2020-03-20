@@ -1,6 +1,11 @@
 <template lang='pug'>
-section.indexCard(:class='indexClass')
-    .indexCard_inner
+section.indexCard(:class='indexClass' )
+    categoryLabel(
+        :class='indexClass',
+        :url='setCategoryLink',
+        :name='category' 
+    ) {{category}}
+    .indexCard_inner(@click='toLinkPage')
         .indexCard_infoArea
             h2.indexCard_title 
                 nuxt-link(
@@ -17,11 +22,6 @@ section.indexCard(:class='indexClass')
                     :src='img.url' 
                     :alt='alt'
                 )
-        categoryLabel(
-            :class='indexClass',
-            :url='setCategoryLink',
-            :name='category'
-        ) {{category}}
 </template>
 <script>
 import CategoryLabel from '~/components/element/CategoryLabel';
@@ -71,16 +71,23 @@ export default {
           return `/${this.categoryPath}/`
         }
 
+    },
+    methods:{
+        toLinkPage:function(event){
+            this.$router.push({ path: this.setLink })
+        },
     }
 }
 </script>
 <style lang='scss'>
 .indexCard{
     padding: 1rem;
-    max-width: 380px;
     position: relative;
     border-radius: 0.75rem;
     transition: .5s;
+    &:hover{
+        cursor:pointer;
+    }
     &_infoArea{
         order: 1;
         padding-left: 0.25rem;
@@ -134,11 +141,6 @@ export default {
         color: $color-text-sub;
         order: 0;
     }
-    .categoryLabel{
-        position: absolute;
-        top:0.5rem;
-        left: 0.5rem;
-    }
     &:hover {
         transition: .25s;
         box-shadow: $shadow-02;
@@ -146,6 +148,12 @@ export default {
     &:hover .indexCard_img{
         transform: scale(1.2);
         transition: .25s;
+    }
+    .categoryLabel{
+        position: absolute;
+        top:0.5rem;
+        left: 0.5rem;
+        z-index:99999;
     }
 }
 </style>

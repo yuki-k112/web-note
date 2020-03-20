@@ -1,6 +1,15 @@
 <template lang='pug'>
 main
-    h1 test
+    ArticleArea(
+        :title='article.title' 
+        :body='article.body' 
+        :date='article.date' 
+        :updataDate='article.updatedAt' 
+        :category='article.category.title' 
+        :categoryPath='article.category.path' 
+        :tags='article.tag' 
+        :img='article.mainImg.url'
+    )
 
 </template>
 
@@ -15,15 +24,20 @@ export default {
     components: {
         ArticleArea
     },
+    data:function(){
+        return {
+            article:null,
+        }
+    },
     created() {        
         if (this.cont) { return } 
         const articles = this.$store.state.contents.article;
         const article = articles.filter(item => item.id === this.$route.params.id)
-        this.cont = article
+        this.article = article[0]
     },
     async asyncData (context) {        
         if (!context.payload) { return }
-        return { cont: context.payload }
+        return { article: context.payload }
     }
 }
 
