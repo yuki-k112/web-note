@@ -2,21 +2,21 @@
 export default {
     name:'SectionTitle',
     render(h){
-        const Lebel = `h${this.lebel}`;
+        const Level = `h${this.level}`;
         const ShowLeadText = () => {
             if(!this.lead) { return };
             return (<p class='sectionTitle_lead'>{this.lead}</p>)
         }
         return (
             <div class='sectionTitle'>
-                <Lebel class='sectionTitle_title'>{this.title}</Lebel>
+                <Level class='sectionTitle_title'>{this.title}</Level>
                 <ShowLeadText />
             </div>
         )
     },
     props:{
-        lebel:{
-            type:Number,
+        level:{
+            type:String,
             required:true,
         },
         title:{
@@ -32,13 +32,13 @@ export default {
 <style scoped lang="scss">
 .sectionTitle{
     display: block;
-    color: #fff;
+    color:$color-main;
     margin-bottom: 2rem;
     position: relative;
     padding-left: 2rem;
     &::before{
         content: '';
-        border-top: solid 0.75rem #fff;
+        border-top: solid 0.75rem $color-main;
         border-left: solid 0.5rem transparent;
         border-right: solid 0.5rem transparent;
         display: block;
