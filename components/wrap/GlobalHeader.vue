@@ -1,8 +1,9 @@
 <template lang='pug'>
 header.globalHeader
-    dl.globalHeader_titleArea
-        dt.globalHeader_logo WEB NOTE
-        dd.globalHeader_lead  記録しておきたいことを色々書く
+    a(href='/')
+        dl.globalHeader_titleArea
+            dt.globalHeader_logo WEB NOTE
+            dd.globalHeader_lead  記録しておきたいことを色々書く
 
 </template>
 

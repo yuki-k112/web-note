@@ -135,7 +135,7 @@ export default {
         &-wrap{
             overflow: hidden;
             width: 100%;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
     }
     &_date{
