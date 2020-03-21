@@ -2,6 +2,8 @@
 nav.globalNavi
     dl.globalNavi_categoryList
         dt.globalNavi_categoryTitle カテゴリー
+        dd.globalNavi_category
+            nuxt-link.globalNavi_link(to='/') Home
         dd.globalNavi_category(v-for='item in categories')
             nuxt-link.globalNavi_link(:to='"/"+item.path') {{item.title}}
 </template>

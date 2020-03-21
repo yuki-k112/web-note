@@ -2,11 +2,11 @@
 main.index
     SectionTitle(
         level='1'
-        title='New' 
-        lead='新着記事一覧'
+        :title='findSectionTitle'
+        lead='記事一覧'
     )
     CardList(
-        :articleData='articleData'
+        :articleData='findArticle'
     )
 </template>
 
@@ -26,21 +26,16 @@ export default {
         }
     },
     computed:{
-        articleData:function(){
-            const articles = this.$store.state.contents.article;            
-            return articles.filter(item => item.category.path === this.$route.params.category)
+        getArticles:function(){
+            return this.$store.state.contents.article;
         },
-    },
-    async asyncData({ app, error }) {
-    const { data } = await axios.get(
-        "https://web-note.microcms.io/api/v1/article",{
-            headers: { "X-API-KEY": process.env.API_KEY }
-        }
-    );
-    return {
-        items: data.contents
-    };
-    },
+        findArticle:function(){
+            return this.getArticles.filter(item => item.category.path === this.$route.params.category)
+        },
+        findSectionTitle:function(){
+            return this.findArticle[0].category.title
+        },
+    }
 }
 
 </script>
