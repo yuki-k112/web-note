@@ -1,55 +1,46 @@
 <template lang='pug'>
 main.index
-    .index_header
-        h1.index_title TEST
-        p.index_lead test
-
-    transition-group.index_cardList(
-        appear 
-        name='list-complete' 
-        tag='ul'
+    SectionTitle(
+        level='1'
+        title='New' 
+        lead='新着記事一覧'
     )
-        li.index_card(
-            v-for='item in items' 
-            :key="item.id"
-        )
-            IndexCard(
-                :title='item.title' 
-                :date='item.date' 
-                :alt='item.alt' 
-                :img='item.mainImg'
-                :category='item.category.title'
-                :linkUrl='testUrl'
-                :tags='item.tag'
-            )
+    CardList(
+        :articleData='articleData'
+    )
 </template>
 
 <script>
 import axios from "axios";
-import CategoryLabel from "~/components/element/CategoryLabel";
-import IndexCard from "~/components/module/IndexCard";
+import CardList from "~/components/wrap/CardList"
+import SectionTitle from "~/components/element/SectionTitle"
 
 export default {
-  components: {
-    CategoryLabel,
-    IndexCard,
-  },
-  data:function(){
-      return {
-          testUrl:'/'
-      }
-  },
-  async asyncData({ app, error }) {
-   const { data } = await axios.get(
-      "https://web-note.microcms.io/api/v1/article",
-      {
-        headers: { "X-API-KEY": process.env.API_KEY }
-      }
+    components: {
+        CardList,
+        SectionTitle
+    },
+    data:function(){
+        return {
+            testUrl:'/'
+        }
+    },
+    computed:{
+        articleData:function(){
+            const articles = this.$store.state.contents.article;            
+            return articles.filter(item => item.category.path === this.$route.params.category)
+        },
+    },
+    async asyncData({ app, error }) {
+    const { data } = await axios.get(
+        "https://web-note.microcms.io/api/v1/article",{
+            headers: { "X-API-KEY": process.env.API_KEY }
+        }
     );
     return {
-      items: data.contents
+        items: data.contents
     };
-  },
+    },
 }
 
 </script>
