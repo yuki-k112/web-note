@@ -132,6 +132,38 @@ export default {
     }
     &_body{
         margin-top: 4rem;
+        h2{
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: $text-large;
+            color:$color-main;
+            &::before{
+                content: '';
+                border-top: solid 0.6rem $color-main;
+                border-left: solid 0.5rem transparent;
+                border-right: solid 0.5rem transparent;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;            
+            }
+        }
+        p+h2{
+            margin-top: 3rem;
+        }
+        p{
+            line-height: 1.7;
+            font-size: 15px;
+        }
+        code{
+            display: block;
+            padding: 1.5rem;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+        }
     }
     .categoryLabel{
         position:absolute;

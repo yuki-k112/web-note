@@ -3,7 +3,8 @@ header.globalHeader
     a(href='/')
         dl.globalHeader_titleArea
             dt.globalHeader_logo WEB NOTE
-            dd.globalHeader_lead  記録しておきたいことを色々書く
+            dd.globalHeader_lead  フロントエンドやデザインについて色々書く場所
+
 
 </template>
 
@@ -32,6 +33,7 @@ export default {
     }
     &_lead{
         margin-top: 1rem;
+        line-height: 1.7;
     }
 }
 </style>

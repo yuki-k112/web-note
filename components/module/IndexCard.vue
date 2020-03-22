@@ -104,7 +104,7 @@ export default {
         text-decoration: none;
     }
     &_title{
-        font-size: $text-medium;
+        font-size: 15px;
         font-weight: 700;
         margin-bottom: 0.25rem;
         order: 1;
@@ -129,12 +129,12 @@ export default {
     &_img{
         order: 0;
         width: 100%;
-        height: 100%;
         transition: .4s;
         vertical-align: bottom;
         &-wrap{
             overflow: hidden;
             width: 100%;
+            height: 11vw;
             margin-bottom: 1.5rem;
         }
     }

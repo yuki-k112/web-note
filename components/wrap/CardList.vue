@@ -48,6 +48,7 @@ export default {
         min-width: 195px;
         .indexCard{
             width:100%;
+            height: 100%;
             // @media only screen and (max-width:1060px) {
             //     width: calc(50% - 3rem);
             // }
