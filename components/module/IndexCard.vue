@@ -154,4 +154,12 @@ export default {
         z-index:99999;
     }
 }
+
+@include sp{
+    .indexCard{
+        &_img-wrap{
+            height: 11rem;
+        }
+    }
+};
 </style>

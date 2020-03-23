@@ -60,4 +60,15 @@ export default {
     }
 }
 
+@include sp{
+    .cardList{
+        flex-direction:column;
+        &_item{
+            width: 100%;
+            margin: 0 0 2rem;
+            max-width: 100%;
+            min-width: 1px;
+        }
+    }
+};
 </style>

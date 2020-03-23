@@ -14,8 +14,8 @@ import GlobalNavi from '~/components/wrap/GlobalNavi'
 
 export default {
     components:{
-       GlobalHeader,
-       GlobalNavi
+        GlobalHeader,
+        GlobalNavi
     }
 }
 
@@ -47,4 +47,32 @@ export default {
         padding: 3rem;
     }
 }
+
+@include sp{
+    .wrapper{
+        &_side{
+            position: static;
+            width: 100%;
+            height: auto;
+            padding: 0 0 1rem;
+            background-size: 100% calc(100% - 2.5rem);
+            background-repeat: no-repeat;
+            background-position: bottom;  
+        }
+        &_main{
+            margin-left: 0;
+            padding: 3rem 1rem 1rem;
+        }
+        .globalHeader{
+            width: 100%;
+            border-radius: 0;
+            margin: auto;
+            position: relative;
+            top: 0;
+        }
+        .globalNavi{
+            margin-top: 0;
+        }
+    }
+};
 </style>

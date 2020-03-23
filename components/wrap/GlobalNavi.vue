@@ -50,4 +50,28 @@ export default {
         color:#fff;
     }
 }
+
+@include sp{
+    .globalNavi{
+        &_categoryList{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 1rem;
+        }
+        &_categoryTitle{
+            width: 100%;
+            text-align: center;
+            font-size: $text-medium;
+            margin-bottom: 0.5rem;
+        }
+        &_category{
+            margin-top: 0;
+            &+&{
+                margin-top: 0;
+            }
+        }
+    }
+};
 </style>

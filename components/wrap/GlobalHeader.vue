@@ -36,4 +36,15 @@ export default {
         line-height: 1.7;
     }
 }
+@include sp{
+    .globalHeader{
+        &_titleArea{
+            justify-content: center;
+        }
+        &_lead{
+            font-weight: 400;
+            margin-top: 0.5rem;
+        }
+    }
+};
 </style>

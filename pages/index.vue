@@ -32,4 +32,10 @@ export default {
 .index{
     padding-left: 2rem;
 }
+
+@include sp{
+    .index{
+        padding-left: 0;
+    }
+};
 </style>
