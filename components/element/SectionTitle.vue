@@ -51,5 +51,12 @@ export default {
     }
 }
 @media only screen and (max-width: 768px) {
+    .sectionTitle{
+        padding-left: 0;
+        text-align: center;
+        &::before{
+            content:none;
+        }
+    }
 }
 </style>

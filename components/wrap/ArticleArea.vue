@@ -62,7 +62,7 @@ export default {
             return 'background-image:url("' + this.img + '")'
         },
         setCategoryLink:function(){
-          return `/${this.categoryPath}/`
+            return `/${this.categoryPath}/`
         }
     },
 }
@@ -72,10 +72,10 @@ export default {
     border-radius: 10px;
     background-color: #fff;
     box-shadow: $shadow-04;
-    max-width: 1000px;
+    max-width: 900px;
     margin: auto;
     overflow: hidden;
-    padding: 0 2.5rem 2.5rem;
+    padding: 0 3.5rem 4.5rem;
     position:relative;
     &_header{
         display:flex;
@@ -94,13 +94,13 @@ export default {
     &_title{
         font-size: $text-larger;
         font-weight: 700;
-        margin-top: 1.5rem;
+        margin-top: 3.5rem;
     }
     &_dateArea{
         display: flex;
         font-size: $text-smaller;
         color: $color-text-sub;
-        margin-top:1rem;
+        margin-top:1.5rem;
     }
     &_update{
         margin-left: 0.75rem;
@@ -133,29 +133,18 @@ export default {
     &_body{
         margin-top: 4rem;
         h2{
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
             position: relative;
-            padding-left: 1.5rem;
-            font-size: $text-large;
-            color:$color-main;
-            &::before{
-                content: '';
-                border-top: solid 0.6rem $color-main;
-                border-left: solid 0.5rem transparent;
-                border-right: solid 0.5rem transparent;
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                left: 0;            
-            }
+            font-size: 26px;
+            color: $color-main;
         }
         p+h2{
             margin-top: 3rem;
         }
         p{
-            line-height: 1.7;
+            line-height: 1.8;
             font-size: 15px;
         }
         code{
@@ -163,6 +152,7 @@ export default {
             padding: 1.5rem;
             background-color: #f5f5f5;
             border-radius: 10px;
+            color: #1e3977;
         }
     }
     .categoryLabel{
@@ -172,5 +162,36 @@ export default {
         font-size:$text-medium;
     }
 }
+
+@include sp{
+    .articleArea{
+        padding:0 1rem 2.5rem;
+        margin-bottom: 3rem;
+        &_title{
+            margin-top: 1.5rem;
+            font-size: 20px;
+        }
+        &_tags{
+            margin-top: 0;
+        }
+        &_body{
+            margin-top: 2rem;
+            h2{
+                justify-content: center;
+                font-size: 18px;
+                margin-bottom: 1rem;
+            }
+            p{
+                font-size: 14px;
+            }
+            pre{
+                width: 100%;
+                background: #f5f5f5;
+                display: block;
+                padding: 0.5rem;
+            }
+        }
+    }
+};
 
 </style>

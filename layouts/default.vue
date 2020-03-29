@@ -1,8 +1,8 @@
 <template lang='pug'>
-.wrapper
+.wrapper(:class='setNaviState')
     .wrapper_side
         GlobalHeader
-        GlobalNavi
+        GlobalNavi(@clickNaviBtn='toggleGlobalNavi')
     .wrapper_main
         nuxt
 
@@ -13,9 +13,35 @@ import GlobalHeader from '~/components/wrap/GlobalHeader'
 import GlobalNavi from '~/components/wrap/GlobalNavi'
 
 export default {
+    scrollToTop: true,
     components:{
         GlobalHeader,
         GlobalNavi
+    },
+    data:function(){
+        return {
+            isOpen:false,
+        }
+    },
+    computed:{
+        setNaviState:function(){
+            if(!this.isOpen){return};
+            return 'open'
+        }
+    },
+    methods:{
+        toggleGlobalNavi:function(){
+            if (this.isOpen){
+                this.isOpen = false
+            } else {
+                this.isOpen = true
+            }
+        }
+    },
+    watch:{
+        $route:function(){
+            this.isOpen = false;
+        }
     }
 }
 
@@ -43,25 +69,26 @@ export default {
         }
     }
     &_main{
-        margin-left: 210px;
+        margin-left: 180px;
         padding: 3rem;
     }
 }
 
 @include sp{
     .wrapper{
+        border-bottom: solid 1rem $color-main;
         &_side{
             position: static;
             width: 100%;
             height: auto;
-            padding: 0 0 1rem;
+            padding: 1rem 0 0;
             background-size: 100% calc(100% - 2.5rem);
             background-repeat: no-repeat;
-            background-position: bottom;  
+            background-position: top;
         }
         &_main{
             margin-left: 0;
-            padding: 3rem 1rem 1rem;
+            padding: 2rem 1rem 1rem;
         }
         .globalHeader{
             width: 100%;
@@ -72,6 +99,33 @@ export default {
         }
         .globalNavi{
             margin-top: 0;
+        }
+    }
+    .open.wrapper{
+        &::before{
+            content: '';
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999999;
+            background-color: #000;
+            opacity: 0.5;
+        }
+        .globalNavi{
+            transform: translateX(0);
+            &_btnInner{
+                width: 0;
+            }
+            &_btnInner::before{
+                transform: translate(-50%, -50%) rotate(45deg);
+                transform-origin: center;
+            }
+            &_btnInner::after{
+                transform: translate(-50%, -50%) rotate(-45deg);
+                transform-origin: center;
+            }
         }
     }
 };

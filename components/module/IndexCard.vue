@@ -87,6 +87,7 @@ export default {
     box-shadow: $shadow-03;
     border-radius: 10px;
     overflow:hidden;
+    background-color: #fff;
     &:hover{
         cursor:pointer;
         transition: .25s;
