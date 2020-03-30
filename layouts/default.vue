@@ -1,5 +1,9 @@
 <template lang='pug'>
-.wrapper(:class='setNaviState')
+.wrapper(
+    :class='setNaviState' 
+    @touchmove='stopScroll'
+)
+    .wrapper_overlay(@click='toggleGlobalNavi')
     .wrapper_side
         GlobalHeader
         GlobalNavi(@clickNaviBtn='toggleGlobalNavi')
@@ -21,21 +25,26 @@ export default {
     data:function(){
         return {
             isOpen:false,
+            scrollHeight:0,
         }
     },
     computed:{
         setNaviState:function(){
             if(!this.isOpen){return};
             return 'open'
-        }
+        },
     },
     methods:{
         toggleGlobalNavi:function(){
             if (this.isOpen){
-                this.isOpen = false
+                this.isOpen = false;
             } else {
                 this.isOpen = true
             }
+        },
+        stopScroll:function(){
+            if (!this.isOpen){return};
+            event.preventDefault()
         }
     },
     watch:{
@@ -72,6 +81,9 @@ export default {
         margin-left: 180px;
         padding: 3rem;
     }
+    &_overlay{
+        display: none;
+    }
 }
 
 @include sp{
@@ -102,8 +114,7 @@ export default {
         }
     }
     .open.wrapper{
-        &::before{
-            content: '';
+        .wrapper_overlay{
             width: 100vw;
             height: 100vh;
             position: fixed;
@@ -112,6 +123,7 @@ export default {
             z-index: 999999;
             background-color: #000;
             opacity: 0.5;
+            display: block;
         }
         .globalNavi{
             transform: translateX(0);

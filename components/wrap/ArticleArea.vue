@@ -191,6 +191,9 @@ export default {
                 padding: 0.5rem;
             }
         }
+        .categoryLabel{
+            font-size: 14px;
+        }
     }
 };
 
