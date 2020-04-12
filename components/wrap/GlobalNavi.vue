@@ -31,7 +31,7 @@ export default {
 .globalNavi{
     &_categoryTitle{
         font-size: $text-large;
-        color: #fff;
+        color: $color-main;
     }
     &_category{
         margin-top: 1.5rem;
@@ -44,7 +44,7 @@ export default {
         }
         &::before{
             content: '';
-            border-left: solid 0.4rem #fff;
+            border-left: solid 0.4rem $color-main;
             border-top: solid 0.4rem transparent;
             border-bottom: solid 0.4rem transparent;
             position: absolute;
@@ -54,7 +54,7 @@ export default {
         }
     }
     &_link{
-        color:#fff;
+        color:$color-main;
     }
     &_btn{
         display: none;
@@ -65,13 +65,13 @@ export default {
     .globalNavi{
         position: fixed;
         right: 0;
-        width: 60vw;
+        width: 70vw;
         height: 100vh;
         z-index: 9999999;
         top: 0;
         transform: translateX(100%);
         transition: .3s;
-        background-color: $color-main;
+        background-color: #fff;
         padding:2rem;
         &_categoryTitle{
             width: 100%;
@@ -85,22 +85,23 @@ export default {
             }
         }
         &_btn{
-            width: 55px;
-            height: 55px;
+            width: 3.5rem;
+            height: 3.5rem;
             display: block;
-            background: #fff;
+            background: $color-main;
             position: absolute;
-            top: 5px;
-            left: -60px;
+            top:0.75rem;
+            left: -4.25rem;
             border: none;
-            border-radius: 50%;
-            border: solid thin $color-main;
+            border-radius:5px;
+            border-right:0;
+            transition: .3s;
             &::before{
                 content:'MENU';
                 font-size: 10px;
-                color: $color-main;
+                color: #fff;
                 position: absolute;
-                bottom: 8px;
+                bottom: 5px;
                 left: 50%;
                 transform: translateX(-50%);
                 font-weight: 700;
@@ -109,7 +110,7 @@ export default {
         &_btnInner{
             width: 20px;
             height: 2px;
-            background-color: $color-main;
+            background-color: #fff;
             display: inline-block;
             vertical-align: middle;
             position: relative;
@@ -119,7 +120,7 @@ export default {
                 content: '';
                 width: 20px;
                 height: 2px;
-                background-color: $color-main;
+                background-color: #fff;
                 display: inline-block;
                 position: absolute;
                 top: 50%;
@@ -131,7 +132,7 @@ export default {
                 content: '';
                 width: 20px;
                 height: 2px;
-                background-color: $color-main;
+                background-color: #fff;
                 display: inline-block;
                 position: absolute;
                 top: 50%;
@@ -139,6 +140,21 @@ export default {
                 transform: translate(-50%, calc(-55% + 5px));
                 transition: .3s;
             }
+        }
+    }
+    .open .globalNavi{
+        transform: translateY(0);
+        box-shadow: $shadow-05;
+        &_btnInner{
+            width: 0;
+        }
+        &_btnInner::before{
+            transform: translate(-50%, -50%) rotate(45deg);
+            transform-origin: center;
+        }
+        &_btnInner::after{
+            transform: translate(-50%, -50%) rotate(-45deg);
+            transform-origin: center;
         }
     }
 };

@@ -42,8 +42,8 @@ export default {
     flex-wrap: wrap;
     max-width: 1200px;
     &_item{
-        margin:0 2rem 3rem;
-        width: calc(33% - 4rem);
+        margin:0 1rem 2rem;
+        width: calc(33% - 2rem);
         max-width: 320px;
         min-width: 195px;
         .indexCard{

@@ -74,6 +74,7 @@ export default {
     scss: [
         '~/assets/scss/_variables.scss',
         '~/assets/scss/_mixin.scss',
+        '~/assets/scss/_animate.scss',
     ],
   },
   router:{

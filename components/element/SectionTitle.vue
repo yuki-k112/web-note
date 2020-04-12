@@ -36,26 +36,30 @@ export default {
     margin-bottom: 2rem;
     position: relative;
     padding-left: 2rem;
-    &::before{
-        content: '';
-        border-top: solid 0.75rem $color-main;
-        border-left: solid 0.5rem transparent;
-        border-right: solid 0.5rem transparent;
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 1.25em;
-    }
+    // &::before{
+    //     content: '';
+    //     border-top: solid 0.75rem $color-main;
+    //     border-left: solid 0.5rem transparent;
+    //     border-right: solid 0.5rem transparent;
+    //     display: block;
+    //     position: absolute;
+    //     left: 0;
+    //     top: 1.25em;
+    // }
     &_title{
-        font-size: $text-larger;
+        font-size: 3rem;
     }
 }
 @media only screen and (max-width: 768px) {
     .sectionTitle{
         padding-left: 0;
         text-align: center;
+        margin-bottom:1.25rem;
         &::before{
             content:none;
+        }
+        &_title{
+            font-size: 1.5rem;
         }
     }
 }

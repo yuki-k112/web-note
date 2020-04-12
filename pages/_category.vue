@@ -1,6 +1,6 @@
-<template>
-<nuxt-child></nuxt-child>
-
+<template lang='pug'>
+div.wrapper_transition
+    nuxt-child(:key="$route.name")
 </template>
 
 <script>

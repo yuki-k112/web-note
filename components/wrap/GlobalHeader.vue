@@ -16,34 +16,42 @@ export default {
 
 <style lang='scss'>
 .globalHeader{
-    background-color: #fff;
-    padding: 1rem 1.5rem;
+    background-color: $color-main;
+    padding: 1rem;
     border-radius: 10px;
     &_titleArea{
-        color: $color-main;
+        color: #fff;
         display: flex;
         align-items: center;
         flex-wrap: wrap;
         font-weight: 700;
     }
     &_logo{
-        font-size: 2.75rem;
+        font-size: 2.5rem;
         position: relative;
         line-height: 1.2;
     }
     &_lead{
         margin-top: 1rem;
         line-height: 1.7;
+        font-size: $text-small;
     }
 }
 @include sp{
     .globalHeader{
         &_titleArea{
-            justify-content: center;
+            display: block;
         }
         &_lead{
             font-weight: 400;
-            margin-top: 0.5rem;
+            margin-top: 0.25rem;
+            color: $color-main;
+            padding-left: 0.75rem;
+        }
+        &_logo{
+            background-color: $color-main;
+            font-size: 24px;
+            padding: 0.8rem;
         }
     }
 };

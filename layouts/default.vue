@@ -9,7 +9,6 @@
         GlobalNavi(@clickNaviBtn='toggleGlobalNavi')
     .wrapper_main
         nuxt
-
 </template>
 
 <script>
@@ -61,25 +60,27 @@ export default {
     min-height: 100vh;
     background-color: $color-bg-sub;
     &_side{
-        width: 180px;
-        background-image: linear-gradient(60deg, #96deda 0%, #09d2a3 100%);
+        width: 160px;
+        z-index: 999;
+        // background-image: linear-gradient(60deg, #96deda 0%, #09d2a3 100%);
+        background-color: #fff;
         height: 100vh;
         position: fixed;
         top: 0;
         left: 0;
         padding: 2rem 1rem 2rem 2rem;
+        box-shadow: $shadow-04;
         .globalHeader{
             position: absolute;
             top: 2rem;
-            width: 190px;
+            width: 165px;
         }
         .globalNavi{
             margin-top: 15rem;
         }
     }
     &_main{
-        margin-left: 180px;
-        padding: 3rem;
+        margin-left: 160px;
     }
     &_overlay{
         display: none;
@@ -93,14 +94,15 @@ export default {
             position: static;
             width: 100%;
             height: auto;
-            padding: 1rem 0 0;
+            padding:0;
             background-size: 100% calc(100% - 2.5rem);
             background-repeat: no-repeat;
             background-position: top;
+            box-shadow: none;
         }
         &_main{
             margin-left: 0;
-            padding: 2rem 1rem 1rem;
+            padding: 1rem;
         }
         .globalHeader{
             width: 100%;
@@ -108,6 +110,8 @@ export default {
             margin: auto;
             position: relative;
             top: 0;
+            background-color: #f6f9fa;
+            padding: 0.75rem;
         }
         .globalNavi{
             margin-top: 0;
@@ -124,20 +128,6 @@ export default {
             background-color: #000;
             opacity: 0.5;
             display: block;
-        }
-        .globalNavi{
-            transform: translateX(0);
-            &_btnInner{
-                width: 0;
-            }
-            &_btnInner::before{
-                transform: translate(-50%, -50%) rotate(45deg);
-                transform-origin: center;
-            }
-            &_btnInner::after{
-                transform: translate(-50%, -50%) rotate(-45deg);
-                transform-origin: center;
-            }
         }
     }
 };
