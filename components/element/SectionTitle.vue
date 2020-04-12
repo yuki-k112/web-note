@@ -8,10 +8,14 @@ export default {
             return (<p class='sectionTitle_lead'>{this.lead}</p>)
         }
         return (
-            <div class='sectionTitle'>
-                <Level class='sectionTitle_title'>{this.title}</Level>
-                <ShowLeadText />
-            </div>
+            <transition appear name='slideInBtm'>
+                <div class='sectionTitle'>
+                    <Level class='sectionTitle_title'>{this.title}</Level>
+                    <transition appear name='slideInRight'>
+                        <ShowLeadText />
+                    </transition>
+                </div>
+            </transition>
         )
     },
     props:{
@@ -48,6 +52,12 @@ export default {
     // }
     &_title{
         font-size: 3rem;
+    }
+    &.slideInBtm-enter-active, .slideInBtm-leave-active{
+        transition-delay: 0.2s;
+    }
+    .slideInRight-enter-active, .slideInRight-leave-active{
+        transition-delay: 0.45s;
     }
 }
 @media only screen and (max-width: 768px) {

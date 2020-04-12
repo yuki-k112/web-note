@@ -1,6 +1,6 @@
 <template lang='pug'>
 header.globalHeader
-    a(href='/')
+    nuxt-link(to='/')
         dl.globalHeader_titleArea
             dt.globalHeader_logo WEB NOTE
             dd.globalHeader_lead  フロントエンドやデザインについて色々書く場所

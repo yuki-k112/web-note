@@ -69,9 +69,8 @@ export default {
 .articleArea{
     margin: auto;
     overflow: hidden;
-    background-size:cover;
+    background-size:100vw;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     &_inner{
         background-color:#F6F9FA;
         padding: 0 3.5rem 4.5rem 7rem;
