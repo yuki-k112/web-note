@@ -44,7 +44,6 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/style-resources'
   ],
@@ -67,9 +66,6 @@ export default {
   env: {
     API_KEY
   },
-  // router:{
-  //   middleware:'getData',
-  // },
   styleResources: {
     scss: [
         '~/assets/scss/_variables.scss',
@@ -81,15 +77,29 @@ export default {
     middleware:'fetchData',
   },
   generate:{
-    async routes(){
-        const res = await axios.get('https://web-note.microcms.io/api/v1/article', {
-            headers: { "X-API-KEY": process.env.API_KEY }
-        })
-        res.data.contents.map(item => {
-            return {
-                route:`/${item.category.path}/${item.id}`,
-                payload:item
-            }
-        })
-    }
-},}
+    routes (callback) {
+        axios.get('https://web-note.microcms.io/api/v1/article', {headers: { "X-API-KEY": process.env.API_KEY }})
+            .then((res) => {
+                const routes = res.data.contents.map(item => {
+                    return {
+                        route:`/${item.category.path}/${item.id}`,
+                        payload:item
+                    }
+                })
+                callback(null, routes)
+            })
+            .catch(callback)
+    },  
+    // async routes(){
+    //     const res = await axios.get('https://web-note.microcms.io/api/v1/article', {
+    //         headers: { "X-API-KEY": process.env.API_KEY }
+    //     })
+    //     res.data.contents.map(item => {
+    //         return {
+    //             route:`/${item.category.path}/${item.id}`,
+    //             payload:item
+    //         }
+    //     })
+    // },
+},
+}
