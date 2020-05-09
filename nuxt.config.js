@@ -90,16 +90,5 @@ export default {
             })
             .catch(callback)
     },  
-    // async routes(){
-    //     const res = await axios.get('https://web-note.microcms.io/api/v1/article', {
-    //         headers: { "X-API-KEY": process.env.API_KEY }
-    //     })
-    //     res.data.contents.map(item => {
-    //         return {
-    //             route:`/${item.category.path}/${item.id}`,
-    //             payload:item
-    //         }
-    //     })
-    // },
-},
+  },
 }
