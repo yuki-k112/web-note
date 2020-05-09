@@ -12,10 +12,10 @@ section.indexCard(:class='indexClass' )
                     :to='setLink'
                 ) {{title}}
             time.indexCard_date {{date}}
-            ul.indexCard_tagList
-                li.indexCard_tag(
-                    v-for='item in tags'
-                ) 
+            //- ul.indexCard_tagList
+            //-     li.indexCard_tag(
+            //-         v-for='item in tags'
+            //-     ) 
                     a.indexCard_tagLink {{item.tag}}
         figure.indexCard_img-wrap
                 img.indexCard_img(
@@ -65,10 +65,10 @@ export default {
     },
     computed:{
         setLink:function(){
-          return `/${this.categoryPath}/${this.id}/`
+            return `/${this.categoryPath}/${this.id}/`
         },
         setCategoryLink:function(){
-          return `/${this.categoryPath}/`
+            return `/${this.categoryPath}/`
         }
 
     },
@@ -142,6 +142,7 @@ export default {
         font-size: $text-smaller;
         color: $color-text-sub;
         order: 0;
+        margin-bottom: 0.5rem;
     }
     &:hover .indexCard_img{
         transform: scale(1.2);

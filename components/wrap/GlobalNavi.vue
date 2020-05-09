@@ -75,14 +75,15 @@ export default {
         transform: translateX(100%);
         transition: .3s;
         background-color: #fff;
-        padding:2rem;
+        padding:2rem 1rem;
         &_categoryTitle{
             width: 100%;
             font-size: $text-medium;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
         &_category{
             margin-top: 0;
+            padding-left: 2.25rem;
             &+&{
                 margin-top: 1rem;
             }

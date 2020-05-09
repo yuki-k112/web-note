@@ -103,7 +103,6 @@ export default {
             margin: auto;
             position: relative;
             top: 0;
-            background-color: #f6f9fa;
             padding: 0.75rem;
         }
         .globalNavi{

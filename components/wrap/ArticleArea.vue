@@ -145,7 +145,7 @@ export default {
         code{
             display: block;
             padding: 1.5rem;
-            background-color: #303030;
+            background-color:#5a5a5a;
             color: #fff;
             margin-top: 1rem;
             border-radius: 5px;

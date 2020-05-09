@@ -70,6 +70,7 @@ export default {
         padding-left: 0;
         text-align: center;
         margin-bottom:1.25rem;
+        justify-content: center;
         &::before{
             content:none;
         }

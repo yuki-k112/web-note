@@ -40,6 +40,7 @@ export default {
 }
 @include sp{
     .globalHeader{
+        background-color: #ffffff;
         &_titleArea{
             display: block;
         }
