@@ -44,7 +44,6 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/style-resources'
   ],
@@ -67,9 +66,6 @@ export default {
   env: {
     API_KEY
   },
-  // router:{
-  //   middleware:'getData',
-  // },
   styleResources: {
     scss: [
         '~/assets/scss/_variables.scss',
@@ -94,4 +90,5 @@ export default {
             })
             .catch(callback)
     },  
-},}
+  },
+}
