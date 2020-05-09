@@ -1,86 +1,41 @@
-<template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        web-note
-      </h1>
-      <p>{{items[0].title}}</p>
-      <h2 class="subtitle">
-        My bee&#39;s knees Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
-  </div>
+<template lang='pug'>
+main.index
+    SectionTitle(
+        level='1'
+        title='New Arrival' 
+        lead='新着記事一覧'
+    )
+    CardList(
+        :articleData='articleData'
+    )
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import axios from "axios";
+import CardList from "~/components/wrap/CardList"
+import SectionTitle from "~/components/element/SectionTitle"
 
 export default {
-  components: {
-    Logo
-  },
-  async asyncData({ app, error }) {
-   const { data } = await axios.get(
-      "https://web-note.microcms.io/api/v1/article",
-      {
-        headers: { "X-API-KEY": process.env.API_KEY }
-      }
-    );
-    return {
-      items: data.contents
-    };
-  },
+    components:{
+        CardList,
+        SectionTitle
+    },
+    computed:{
+        articleData:function(){
+            return this.$store.state.contents.article
+        },
+    }
 }
 
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+<style lang='scss'>
+.index{
+    padding: 5rem 2rem 4rem 3rem;
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
+@include sp{
+    .index{
+        padding:0;
+    }
+};
 </style>

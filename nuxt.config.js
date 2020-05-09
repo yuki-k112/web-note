@@ -1,6 +1,8 @@
 require("dotenv").config();
 const { API_KEY } = process.env;
 
+import axios from 'axios'
+
 export default {
   mode: 'universal',
   /*
@@ -25,11 +27,13 @@ export default {
   ** Global CSS
   */
   css: [
+    { src: '~/assets/scss/_reset.scss', lang: 'scss' },
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+      {src:'~/plugins/validation.js'},
   ],
   /*
   ** Nuxt.js dev-modules
@@ -42,6 +46,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/style-resources'
   ],
   /*
   ** Axios module configuration
@@ -62,4 +67,29 @@ export default {
   env: {
     API_KEY
   },
-}
+  // router:{
+  //   middleware:'getData',
+  // },
+  styleResources: {
+    scss: [
+        '~/assets/scss/_variables.scss',
+        '~/assets/scss/_mixin.scss',
+        '~/assets/scss/_animate.scss',
+    ],
+  },
+  router:{
+    middleware:'fetchData',
+  },
+  generate:{
+    async routes(){
+        const res = await axios.get('https://web-note.microcms.io/api/v1/article', {
+            headers: { "X-API-KEY": process.env.API_KEY }
+        })
+        res.data.contents.map(item => {
+            return {
+                route:`/${item.category.path}/${item.id}`,
+                payload:item
+            }
+        })
+    }
+},}
