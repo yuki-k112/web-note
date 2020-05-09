@@ -42,10 +42,13 @@ export default {
     flex-wrap: wrap;
     max-width: 1200px;
     &_item{
-        margin:0 1rem 2rem;
-        width: calc(33% - 2rem);
+        margin:0 0.5rem 1rem;
+        width: calc(94% / 3);
         max-width: 320px;
         min-width: 195px;
+        @media only screen and (max-width:1069px) {
+            width: calc(94% / 2);
+        }
         .indexCard{
             width:100%;
             height: 100%;

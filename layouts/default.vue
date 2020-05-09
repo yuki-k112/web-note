@@ -58,29 +58,22 @@ export default {
 <style lang='scss'>
 .wrapper{
     min-height: 100vh;
-    background-color: $color-bg-sub;
     &_side{
-        width: 160px;
+        width: 300px;
         z-index: 999;
         // background-image: linear-gradient(60deg, #96deda 0%, #09d2a3 100%);
-        background-color: #fff;
+        // background-color: #c5eceb;
+        background-color: $color-bg-sub;
         height: 100vh;
         position: fixed;
         top: 0;
         left: 0;
-        padding: 2rem 1rem 2rem 2rem;
-        box-shadow: $shadow-04;
-        .globalHeader{
-            position: absolute;
-            top: 2rem;
-            width: 165px;
-        }
         .globalNavi{
-            margin-top: 15rem;
+            margin-top: 1.5rem;
         }
     }
     &_main{
-        margin-left: 160px;
+        margin-left: 300px;
     }
     &_overlay{
         display: none;

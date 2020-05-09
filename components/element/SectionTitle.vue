@@ -11,7 +11,7 @@ export default {
             <transition appear name='slideInBtm'>
                 <div class='sectionTitle'>
                     <Level class='sectionTitle_title'>{this.title}</Level>
-                    <transition appear name='slideInRight'>
+                    <transition appear name='slideInBtm'>
                         <ShowLeadText />
                     </transition>
                 </div>
@@ -35,11 +35,12 @@ export default {
 </script>
 <style scoped lang="scss">
 .sectionTitle{
-    display: block;
+    display:flex;
+    align-items: center;
     color:$color-main;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     position: relative;
-    padding-left: 2rem;
+    padding-left: 1.5rem;
     // &::before{
     //     content: '';
     //     border-top: solid 0.75rem $color-main;
@@ -51,13 +52,17 @@ export default {
     //     top: 1.25em;
     // }
     &_title{
-        font-size: 3rem;
+        font-size: 2.5rem;
+    }
+    &_lead{
+        margin: 0.5rem 0 0 1rem;
+        line-height: 2.5rem;
     }
     &.slideInBtm-enter-active, .slideInBtm-leave-active{
         transition-delay: 0.2s;
     }
-    .slideInRight-enter-active, .slideInRight-leave-active{
-        transition-delay: 0.45s;
+    .sectionTitle_lead.slideInBtm-enter-active, .sectionTitle_lead.slideInBtm-leave-active{
+        transition-delay: 0.3s;
     }
 }
 @media only screen and (max-width: 768px) {

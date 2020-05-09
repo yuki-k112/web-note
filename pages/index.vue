@@ -30,7 +30,7 @@ export default {
 
 <style lang='scss'>
 .index{
-    padding: 4rem 2rem 4rem 5rem;
+    padding: 5rem 2rem 4rem 3rem;
 }
 
 @include sp{

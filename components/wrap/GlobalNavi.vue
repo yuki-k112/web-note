@@ -1,7 +1,7 @@
 <template lang='pug'>
 nav.globalNavi
     dl.globalNavi_categoryList
-        dt.globalNavi_categoryTitle カテゴリー
+        dt.globalNavi_categoryTitle Categories
         dd.globalNavi_category
             nuxt-link.globalNavi_link(to='/') Home
         dd.globalNavi_category(v-for='item in categories')
@@ -30,31 +30,34 @@ export default {
 <style lang='scss'>
 .globalNavi{
     &_categoryTitle{
-        font-size: $text-large;
+        font-size: $text-medium;
         color: $color-main;
-    }
-    &_category{
-        margin-top: 1.5rem;
-        font-weight: 700;
+        padding-left:2rem;
         position: relative;
-        display: flex;
-        padding-left: 1rem;
-        &+&{
-            margin-top: 1rem;
-        }
         &::before{
             content: '';
-            border-left: solid 0.4rem $color-main;
-            border-top: solid 0.4rem transparent;
-            border-bottom: solid 0.4rem transparent;
+            border-left: solid 7px $color-main;
+            border-top:solid 7px transparent;
+            border-bottom:solid 7px transparent;
             position: absolute;
             top: 50%;
+            left: 1rem;
             transform: translateY(-50%);
-            left: 0;
+        }
+    }
+    &_category{
+        margin-top: 0.75rem;
+        position: relative;
+        display: flex;
+        padding-left: 2.5rem;
+        &+&{
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: dotted thin $color-main;
         }
     }
     &_link{
-        color:$color-main;
+        color:$color-text;
     }
     &_btn{
         display: none;

@@ -72,7 +72,7 @@ export default {
     background-size:100vw;
     background-repeat: no-repeat;
     &_inner{
-        background-color:#F6F9FA;
+        background-color:#fff;
         padding: 0 3.5rem 4.5rem 7rem;
         position:relative;
         margin-top: calc(12rem + 11vw);
@@ -85,7 +85,7 @@ export default {
         width: 100vw;
     }
     &_title{
-        font-size:34px;
+        font-size:28px;
         font-weight: 700;
         margin-top: 5rem;
     }
@@ -132,7 +132,7 @@ export default {
             display: flex;
             align-items: center;
             position: relative;
-            font-size: 22px;
+            font-size: 24px;
         }
         p+h2{
             margin-top: 3rem;
@@ -140,7 +140,7 @@ export default {
         p{
             line-height: 1.8;
             font-size: 15px;
-            max-width: 55rem;
+            max-width: 50rem;
         }
         code{
             display: block;

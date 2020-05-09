@@ -82,12 +82,11 @@ export default {
 <style lang='scss'>
 .indexCard{
     position: relative;
-    border-radius: 0.75rem;
     transition: .5s;
-    box-shadow: $shadow-03;
-    border-radius: 10px;
+    box-shadow: $shadow-02;
     overflow:hidden;
     background-color: #fff;
+    border-radius: 5px;
     &:hover{
         cursor:pointer;
         transition: .25s;
@@ -105,7 +104,7 @@ export default {
         text-decoration: none;
     }
     &_title{
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 700;
         margin-bottom: 0.25rem;
         order: 1;
