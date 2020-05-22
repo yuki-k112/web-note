@@ -73,27 +73,31 @@ export default {
     background-repeat: no-repeat;
     &_inner{
         background-color:#fff;
-        padding: 0 3.5rem 4.5rem 7rem;
+        padding: 4rem 4rem 4.5rem 4rem;
         position:relative;
         margin-top: calc(12rem + 11vw);
     }
     &_header{
         display:flex;
+        max-width: 920px;
         flex-direction:column;
+        position: relative;
     }
     &_img{
         width: 100vw;
     }
     &_title{
-        font-size:28px;
+        font-size:30px;
         font-weight: 700;
-        margin-top: 5rem;
+        order: 1;
+        margin-top: 1.5rem;
     }
     &_dateArea{
         display: flex;
         font-size: $text-smaller;
         color: $color-text-sub;
         margin-top:0.5rem;
+        order: 2;
     }
     &_update{
         margin-left: 0.75rem;
@@ -107,6 +111,7 @@ export default {
         font-size: $text-small;
         color: $color-text-sub;
         margin-top:0.25rem;
+        order: 3;
     }
     &_tagTitle{
         font-weight: 400;
@@ -124,23 +129,24 @@ export default {
         }
     }
     &_body{
-        margin-top: 5rem;
+        margin-top: 6.5rem;
         h2{
-            margin-bottom: 0.4rem;
-            padding-bottom: 0.4rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
             border-bottom: 1px dotted #a9a9a9;
             display: flex;
             align-items: center;
             position: relative;
             font-size: 24px;
+            max-width: 940px;
         }
         p+h2{
-            margin-top: 3rem;
+            margin-top: 3.5rem;
         }
         p{
             line-height: 1.8;
             font-size: 15px;
-            max-width: 50rem;
+            max-width: 900px;
         }
         code{
             display: block;
@@ -149,14 +155,14 @@ export default {
             color: #fff;
             margin-top: 1rem;
             border-radius: 5px;
+            max-width: 900px;
+            overflow-x: scroll;
         }
     }
     .categoryLabel{
-        position:absolute;
-        top:-1rem;
         padding: 0.25rem 2rem;
-        left:4.5rem;
-        font-size:$text-large;
+        font-size:$text-medium;
+        order: 0;
     }
 }
 
@@ -166,12 +172,15 @@ export default {
         margin-bottom: 3rem;
         background-size: auto calc(200px + 95px);
         background-position:center top;
+        &_header{
+            padding-top: 2rem;
+        }
         &_inner{
             margin-top:185px;
             padding:0 0.25rem;
         }
         &_title{
-            margin-top: 1.5rem;
+            margin-top: 1rem;
             font-size: 18px;
         }
         &_tags{
