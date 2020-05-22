@@ -25,6 +25,14 @@ export default {
             testUrl:'/'
         }
     },
+    head() {
+        return {
+            title: `${this.findSectionTitle}の記事一覧 | WEB NOTE`,
+            meta: [
+                { hid: 'description', name: 'description', content:`${this.findSectionTitle}についての記事一覧です` }
+            ]
+        }
+    },
     computed:{
         getArticles:function(){
             return this.$store.state.contents.article;

@@ -19,6 +19,14 @@ export default {
         CardList,
         SectionTitle
     },
+    head() {
+        return {
+            title: 'WEB NOTE | フロントエンドやデザインについて色々書く場所',
+            meta: [
+                { hid: 'description', name: 'description', content:'フロントエンドやデザインについて、気になる事やメモ書き等を残していきます' }
+            ]
+        }
+    },
     computed:{
         articleData:function(){
             return this.$store.state.contents.article

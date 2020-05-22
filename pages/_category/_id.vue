@@ -21,6 +21,14 @@ export default {
     async validate ({ params, store }) {
         return store.state.contents.article.some(cont => cont.id === params.id)
     },
+    head() {
+            return {
+                title: `${this.article.title} | WEB NOTE`,
+                meta: [
+                    { hid: 'description', name: 'description', content: this.article.description }
+                ]
+        }
+    },
     components: {
         ArticleArea
     },

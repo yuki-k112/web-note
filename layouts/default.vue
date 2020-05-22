@@ -4,7 +4,7 @@
     @touchmove='stopScroll'
 )
     .wrapper_overlay(@click='toggleGlobalNavi')
-    .wrapper_side
+    aside.wrapper_side
         GlobalHeader
         GlobalNavi(@clickNaviBtn='toggleGlobalNavi')
     .wrapper_main
@@ -68,6 +68,7 @@ export default {
         position: fixed;
         top: 0;
         left: 0;
+        border-right: solid thin #d8d8d8;
         .globalNavi{
             margin-top: 1.5rem;
         }
@@ -92,6 +93,7 @@ export default {
             background-repeat: no-repeat;
             background-position: top;
             box-shadow: none;
+            border-right: none;
         }
         &_main{
             margin-left: 0;

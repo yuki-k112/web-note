@@ -15,9 +15,6 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
   },
   /*
   ** Customize the progress-bar color
@@ -90,16 +87,5 @@ export default {
             })
             .catch(callback)
     },  
-    // async routes(){
-    //     const res = await axios.get('https://web-note.microcms.io/api/v1/article', {
-    //         headers: { "X-API-KEY": process.env.API_KEY }
-    //     })
-    //     res.data.contents.map(item => {
-    //         return {
-    //             route:`/${item.category.path}/${item.id}`,
-    //             payload:item
-    //         }
-    //     })
-    // },
 },
 }

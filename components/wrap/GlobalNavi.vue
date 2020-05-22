@@ -53,7 +53,7 @@ export default {
         &+&{
             margin-top: 0.5rem;
             padding-top: 0.5rem;
-            border-top: dotted thin $color-main;
+            border-top: dotted thin #d8d8d8;
         }
     }
     &_link{
