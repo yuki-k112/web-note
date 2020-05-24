@@ -82,7 +82,7 @@ export default {
                         route:`/${item.category.path}/${item.id}`,
                         payload:item
                     }
-                })
+                })                
                 callback(null, routes)
             })
             .catch(callback)

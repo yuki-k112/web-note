@@ -97,7 +97,7 @@ export default {
         }
         &_main{
             margin-left: 0;
-            padding: 1rem;
+            padding: 5vw;
         }
         .globalHeader{
             width: 100%;

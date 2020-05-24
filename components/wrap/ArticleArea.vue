@@ -1,5 +1,6 @@
 <template lang="pug">
-article.articleArea(:style='getBgImg')
+article.articleArea
+    span.articleArea_img(:style='getBgImg')
     .articleArea_inner
         header.articleArea_header
             h1.articleArea_title {{title}}
@@ -69,13 +70,10 @@ export default {
 .articleArea{
     margin: auto;
     overflow: hidden;
-    background-size:100vw;
-    background-repeat: no-repeat;
     &_inner{
         background-color:#fff;
         padding: 4rem 4rem 4.5rem 4rem;
         position:relative;
-        margin-top: calc(12rem + 11vw);
     }
     &_header{
         display:flex;
@@ -84,10 +82,14 @@ export default {
         position: relative;
     }
     &_img{
-        width: 100vw;
+        display: block;
+        height:calc(12rem + 11vw);
+        background-size:100vw;
+        background-repeat: no-repeat;
+        background-position: center;
     }
     &_title{
-        font-size:30px;
+        font-size:36px;
         font-weight: 700;
         order: 1;
         margin-top: 1.5rem;
@@ -137,7 +139,7 @@ export default {
             display: flex;
             align-items: center;
             position: relative;
-            font-size: 24px;
+            font-size: 28px;
             max-width: 940px;
         }
         p+h2{
@@ -170,13 +172,10 @@ export default {
     .articleArea{
         padding:0;
         margin-bottom: 3rem;
-        background-size: auto calc(200px + 95px);
-        background-position:center top;
         &_header{
-            padding-top: 2rem;
+            margin-top: 2rem;
         }
         &_inner{
-            margin-top:185px;
             padding:0 0.25rem;
         }
         &_title{
