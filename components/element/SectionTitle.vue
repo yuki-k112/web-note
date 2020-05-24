@@ -52,7 +52,7 @@ export default {
     //     top: 1.25em;
     // }
     &_title{
-        font-size: 2.5rem;
+        font-size:55px;
     }
     &_lead{
         margin: 0.5rem 0 0 1rem;
@@ -75,7 +75,7 @@ export default {
             content:none;
         }
         &_title{
-            font-size: 1.5rem;
+            font-size:1.75rem;
         }
     }
 }
