@@ -37,13 +37,13 @@ export default {
             article:null,
         }
     },
-    created() {        
-        if (this.cont) { return } 
+    created() {
+        if (this.article) { return } 
         const articles = this.$store.state.contents.article;
         const article = articles.filter(item => item.id === this.$route.params.id)
         this.article = article[0]
     },
-    async asyncData (context) {        
+    async asyncData (context) {
         if (!context.payload) { return }
         return { article: context.payload }
     }
